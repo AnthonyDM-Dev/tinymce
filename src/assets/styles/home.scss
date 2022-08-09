@@ -1,0 +1,29 @@
+@import 'globals.scss';
+
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+}
+.home {
+    &__heading {
+        &-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 800px;
+            text-align: right;
+        }
+        &-image {
+            display: flex;
+            background-color: white;
+            width: 350px;
+        }
+    }
+    &__logo {
+        height: 200px;
+    }
+}

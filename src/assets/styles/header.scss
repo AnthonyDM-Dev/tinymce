@@ -1,0 +1,19 @@
+@import 'globals.scss';
+
+nav {
+    padding: $spacing-lg;
+    display: flex;
+    justify-content: center;
+    p {
+        padding: 0 $spacing-md;
+    }
+}
+  
+nav a {
+    font-weight: bold;
+    color: $ternary-color;
+}
+  
+nav a.router-link-exact-active {
+    color: $primary-color;
+}

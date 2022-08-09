@@ -1,0 +1,7 @@
+@import 'globals.scss';
+
+.hello h1 {
+    line-height: 1.5;
+    font-size: 40px;
+    padding-right: $spacing-md;
+}
