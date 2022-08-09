@@ -1,7 +1,9 @@
 # tinymce-vue-demo
 
+## Prima di procedere
+Aggiungere la propria Api Key del proprio account TinyMCE nel file .env
+
 ## Project setup
-```
 npm install
 ```
 
