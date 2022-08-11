@@ -2,9 +2,12 @@
   <div id="editor">
     <TinyMce
       :api-key="tinyApiKey"
-      :settings="settings"
+      :phrases="phrases"
+      :tags="tags"
     />
-    <button class="editor__button" @click="writeRandomPhrase"><p>Write</p></button>
+    <button class="editor__button" @click="writeIntoEditor">
+      <p>Write</p>
+    </button>
   </div>
 </template>
 
@@ -17,13 +20,6 @@ export default {
   },
   data () {
     return {
-      settings: {
-        width: 400,
-        height: 400,
-        skin: 'borderless',
-        content_css: 'dark',
-        toolbar_mode: 'undo redo styles bold italic alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-      },
       phrases: [
         'To be or not to be: that is the question',
         'Tis better to have loved and lost than never to have loved at all',
@@ -40,23 +36,9 @@ export default {
     }
   },
   methods: {
-    randomInt (min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min
+    writeIntoEditor () {
+      this.emitter.emit('write')
     },
-    writeRandomPhrase () {
-      window.tinymce.activeEditor.insertContent(
-        this.addRandomTag(this.generateTextFromArray(this.phrases))
-      )
-    },
-    generateTextFromArray (array) {
-      return array[this.randomInt(0, array.length - 1)]
-    },
-    addRandomTag (text) {
-      const randomTag = this.generateTextFromArray(this.tags)
-      const openTag = '<' + randomTag + '>'
-      const endTag = '</' + randomTag + '>'
-      return openTag + text + endTag
-    }
   },
   computed: {
     tinyApiKey () {
